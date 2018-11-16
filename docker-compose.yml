@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+   vendors-app:
+    image: ft2-vendors-image
+    ports:
+    - "8082:8082"
+   restaurants-app:
+    image: ft2-restaurants-image
+    ports:
+    - "8083:8083"
+    links:
+    - vendors-app 
