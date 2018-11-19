@@ -1,4 +1,4 @@
-package com.f2t.vendors_app;
+package com.bazaar.vendors_app;
 
 import java.util.Collections;
 

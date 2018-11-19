@@ -1,4 +1,4 @@
-package com.f2t.common;
+package com.bazaar.common;
 
 /**
  * Hello world!

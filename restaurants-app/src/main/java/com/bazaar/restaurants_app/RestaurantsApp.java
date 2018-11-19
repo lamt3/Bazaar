@@ -1,4 +1,4 @@
-package com.f2t.restaurants_app;
+package com.bazaar.restaurants_app;
 
 import java.util.Collections;
 

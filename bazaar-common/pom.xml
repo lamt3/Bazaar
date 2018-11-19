@@ -9,10 +9,10 @@
 	</parent>
 
 
-	<artifactId>common</artifactId>
+	<artifactId>bazaar-common</artifactId>
 	<packaging>jar</packaging>
 
-	<name>common</name>
+	<name>bazaar-common</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
