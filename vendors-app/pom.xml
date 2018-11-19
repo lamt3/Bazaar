@@ -22,6 +22,7 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<version.spring.boot>1.5.6.RELEASE</version.spring.boot>
 		<version.slf4j>1.7.25</version.slf4j>
+		<docker.image.prefix>lamt3/bazaar-vendors-image</docker.image.prefix>
 	</properties>
 
 	<build>
@@ -30,7 +31,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<mainClass>com.f2t.vendors_app.VendorsApp</mainClass>
+					<mainClass>com.bazaar.vendors_app.VendorsApp</mainClass>
 					<addResources>true</addResources>
 				</configuration>
 				<executions>
@@ -46,8 +47,16 @@
 				<artifactId>docker-maven-plugin</artifactId>
 				<configuration>
 					<skipDockerBuild>false</skipDockerBuild>
-					<imageName>bazaar-vendors-image</imageName>
+					<imageName>${docker.image.prefix}</imageName>
+<!-- 					<pushImage>true</pushImage> -->
+					<imageTags>
+						<imageTag>${project.version}</imageTag>
+					</imageTags>
+				
 					<dockerDirectory>${basedir}/src/main/docker</dockerDirectory>
+			<!-- 		<serverId>docker-hub</serverId>
+					<registryUrl>https://index.docker.io/v1/</registryUrl>  -->
+				<!-- 	<repository>lamt3/bazaar-vendors-image</repository> -->
 					<useConfigFile>true</useConfigFile>
 					<resources>
 						<resource>
@@ -55,7 +64,9 @@
 							<directory>${project.build.directory}</directory>
 							<include>${project.build.finalName}.jar</include>
 						</resource>
+
 					</resources>
+					
 				</configuration>
 			</plugin>
 			<!-- front end plugin -->
@@ -112,8 +123,8 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>com.ft2</groupId>
-			<artifactId>common</artifactId>
+			<groupId>com.bazaar</groupId>
+			<artifactId>bazaar-common</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>

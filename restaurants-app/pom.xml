@@ -26,7 +26,10 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<version.spring.boot>1.5.6.RELEASE</version.spring.boot>
 		<version.slf4j>1.7.25</version.slf4j>
+		<docker.image.prefix>lamt3/bazaar-restaurants-image</docker.image.prefix>
 	</properties>
+
+
 
 	<build>
 		<plugins>
@@ -44,10 +47,23 @@
 			<plugin>
 				<groupId>com.spotify</groupId>
 				<artifactId>docker-maven-plugin</artifactId>
+
+
+
+
+
 				<configuration>
 					<skipDockerBuild>false</skipDockerBuild>
-					<imageName>bazaar-restaurants-image</imageName>
+					<imageName>${docker.image.prefix}</imageName>
+					<imageTags>
+						<imageTag>${project.version}</imageTag>
+					</imageTags>
 					<dockerDirectory>${basedir}/src/main/docker</dockerDirectory>
+					<!-- <pushImage>true</pushImage>
+					
+					<serverId>docker-hub</serverId>
+					<registryUrl>https://index.docker.io/v1/</registryUrl>  -->
+					<!-- <repository>lamt3/bazaar-restaurants-image</repository> -->
 					<resources>
 						<resource>
 							<targetPath>/</targetPath>
@@ -55,6 +71,8 @@
 							<include>${project.build.finalName}.jar</include>
 						</resource>
 					</resources>
+
+					
 				</configuration>
 			</plugin>
 			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-resources-plugin</artifactId> 
@@ -110,8 +128,8 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>com.ft2</groupId>
-			<artifactId>common</artifactId>
+			<groupId>com.bazaar</groupId>
+			<artifactId>bazaar-common</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
