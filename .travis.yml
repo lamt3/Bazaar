@@ -1,2 +1,16 @@
 language: java
 jdk: orackle jdk8
+
+script:
+- ./mvn clean package docker:build
+
+sudo: required
+ 
+services:
+  - docker
+  
+after_success:
+  - docker login -u lamt3 -p Tomokilam3
+  - docker push lamt3/bazaar-restaurants-image
+  
+ 
