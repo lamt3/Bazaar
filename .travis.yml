@@ -7,7 +7,7 @@ services:
 
 script:
 - docker login -u lamt3 -p Tomokilam3
-- sudo mvn clean package docker:build
+- mvn clean package docker:build
 
 
  
