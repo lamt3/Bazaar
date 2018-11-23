@@ -5,12 +5,17 @@ sudo: required
 services:
   - docker
 
+cache:
+  directories:
+    - '$HOME/.m2/repository'
+
 script:
 - docker login -u lamt3 -p Tomokilam3
 - mvn clean package docker:build
   
 after_success:
-  - docker push lamt3/bazaar-restaurants-image
+  - docker push lamt3/bazaar-marketplace-image
   - docker push lamt3/bazaar-vendors-image
+  - docker push lamt3/bazaar-orders-image
   
  

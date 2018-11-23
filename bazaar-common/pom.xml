@@ -31,11 +31,11 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 			<version>${version.spring.boot}</version>
 		</dependency>
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.mongodb</groupId>
 			<artifactId>mongo-java-driver</artifactId>
 			<version>3.6.4</version>
-		</dependency>
+		</dependency> -->
 
 		<dependency>
 			<groupId>junit</groupId>

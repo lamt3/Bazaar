@@ -26,8 +26,9 @@
 
 	<modules>
 		<module>bazaar-common</module>
-		<module>vendors-app</module>
-		<module>restaurants-app</module>
+		<module>web-bazaar-orders</module>
+		<module>web-bazaar-vendors</module>
+		<module>web-bazaar-marketplace</module>
 	</modules>
 
 
