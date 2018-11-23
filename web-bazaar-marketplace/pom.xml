@@ -48,11 +48,12 @@
 				<artifactId>docker-maven-plugin</artifactId>
 				<configuration>
 					<skipDockerBuild>false</skipDockerBuild>
-					<imageName>${docker.image.prefix}</imageName>
+					<imageName>${docker.image.prefix}:${project.version}</imageName>
 					<!-- <pushImage>true</pushImage> -->
-					<imageTags>
+					<forceTags>true</forceTags>
+					<!-- <imageTags>
 						<imageTag>${project.version}</imageTag>
-					</imageTags>
+					</imageTags> -->
 
 					<dockerDirectory>${basedir}/src/main/docker</dockerDirectory>
 					<!-- <serverId>docker-hub</serverId> <registryUrl>https://index.docker.io/v1/</registryUrl> -->
@@ -125,6 +126,11 @@
 		<dependency>
 			<groupId>com.bazaar</groupId>
 			<artifactId>bazaar-common</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.bazaar</groupId>
+			<artifactId>bazaar-accounts</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>

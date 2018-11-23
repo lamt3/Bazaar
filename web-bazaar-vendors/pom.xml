@@ -48,7 +48,8 @@
 				<artifactId>docker-maven-plugin</artifactId>
 				<configuration>
 					<skipDockerBuild>false</skipDockerBuild>
-					<imageName>${docker.image.prefix}</imageName>
+					<imageName>${docker.image.prefix}:${project.version}</imageName>
+					<forceTags>true</forceTags>
 					<!-- <pushImage>true</pushImage> -->
 					<imageTags>
 						<imageTag>${project.version}</imageTag>
